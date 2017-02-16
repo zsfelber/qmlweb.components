@@ -1,3 +1,6 @@
+import QtQuick 2.1
+import QtQuick.Controls 1.2
+
 Item {
   // вообще спорно. а если мы хотим html менять? тогда надо OnHtmlChanged и перегенерировать.. непонятно в общем пока-что
   // аналогично кстати и js

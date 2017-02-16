@@ -1,3 +1,6 @@
+import QtQuick 2.1
+import QtQuick.Controls 1.2
+
 Embed {
   height: 21
   width: 200

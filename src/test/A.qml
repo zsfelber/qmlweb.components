@@ -1,3 +1,5 @@
+import QtQuick 2.1
+
 Rectangle {
   x: 20
   color: "green"

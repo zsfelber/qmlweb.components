@@ -1,3 +1,5 @@
+import QtQuick 2.1
+
 Rectangle {
   color: "cyan"
   //anchors.fill: parent

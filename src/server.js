@@ -1,22 +1,8 @@
 var express = require('express');
 var http = require('http');
 var url = require('url');
-var session = require('client-sessions');
-var ejs = require('ejs');
-var session = require('client-sessions');
-var QmlWeb = require('qmlweb');
-var initQmlWebEngine = require('./js/gzqtjs').initQmlWebEngine;
-//var ws = require("nodejs-websocket");
-var ws = require("ws");
-var InitQrc = require('qmlweb/lib/qmlwebqrc');
 var compression = require('compression')
 
-
-var _qrc = new InitQrc([
-  "../bin/qml/content/qrc_biz_greenzone.min.js",
-  "../bin/qml/content/qrc_util.min.js",
-  "../bin/qml/content/qrc_light.min.js"
-]);
 
 function shouldCompress (req, res) {
   var cext = /(^|\.)\w+$/.exec(req.originalUrl);
@@ -60,101 +46,19 @@ function shouldCompress (req, res) {
   return true;
 }
 
-var document = {
-  createElement : function () {
-    return {dummy:"dummy"};
-  }
-};
-
-function start() {
-  console.log("Starting QmlWeb server...")
-  var glbutl = {
-    allQmls:[] // not used
-  };
-  var usrpmn = {
-    digits:5,
-    timeZones : [0],
-    timeZoneId : "0"
-  };
-  global.document = document;
-
-  var engine = new QmlWeb.QMLEngine();
-
-  engine.rootContext["globalUtil"] = glbutl;
-  engine.rootContext["userAppMain"] = usrpmn;
-
-  initQmlWebEngine(engine);
-}
-
-
 
 var app = express()
-
-app.set('view engine', 'ejs');
-
-app.use(session({
-  cookieName: 'session',
-  secret: '1álk3él,ááé$$$$~9₁u1uéd28hs2aihao  q',
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000,
-}));
-
 
 app.use(compression({
   threshold : 0, // or whatever you want the lower threshold to be
   filter    : shouldCompress
 }));
 
-app.use('/', express.static(__dirname+"/../bin"));
+app.use('/qmlweb', express.static(__dirname+"/../../qmlweb"));
 app.use('/', express.static(__dirname));
 
-app.get('/hello', function (req, res) {
-  res.send('Hello World!')
+
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
 })
-
-app.get("/qindex", function (req, res) {
-  res.render('qindex.ejs', { debug:undefined, title: 'Hey', message: 'Hello there!' })
-})
-
-app.get("/index", function (req, res) {
-  res.render('index.ejs', { debug:undefined, title: 'Hey', message: 'Hello there!' })
-})
-
-app.get("", function (req, res) {
-  res.render('index.ejs', { debug:undefined, title: 'Hey', message: 'Hello there!' })
-})
-
-
-
-
-start();
-
-
-//app.listen(3000, function () {
-//  console.log('Example app listening on port 3000!')
-//})
-
-
-
-var server = http.createServer(app);
-var wss = new ws.Server({ server : server });
-
-wss.on('connection', function connection(ws) {
-  var location = url.parse(ws.upgradeReq.url, true);
-  // You might use location.query.access_token to authenticate or share sessions
-  // or ws.upgradeReq.headers.cookie (see http://stackoverflow.com/a/16395220/151312)
-
-  ws.on('message', function incoming(_json) {
-    var obj = JSON.parse(_json);
-    console.log('received: ', obj);
-    if (obj.init) {
-      ws.send(JSON.stringify({msg:"Replied to:"+obj.init.toUpperCase()}));
-    }
-  });
-
-  ws.send(JSON.stringify({msg:"Connected."}));
-});
-
-server.listen(3000, function listening() {
-  console.log('Listening on %d', server.address().port);
-});

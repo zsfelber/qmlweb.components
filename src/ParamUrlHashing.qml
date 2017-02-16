@@ -1,3 +1,6 @@
+import QtQuick 2.1
+import QtQuick.Controls 1.2
+
 // Kees some object property value in browser url hash
 Item {
   id: obj
