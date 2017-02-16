@@ -24,10 +24,7 @@
         }
     </style>
     
-    <script type="text/javascript" src="../../../qmlweb/src/parser.js"></script>
-    <script type="text/javascript" src="../../../qmlweb/src/process.js"></script>
-    <script type="text/javascript" src="../../../qmlweb/src/import.js"></script>
-    <script type="text/javascript" src="../../../qmlweb/src/qtcore.js"></script>
+    <script type="text/javascript" src="../../../qmlweb/lib/qt.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
@@ -43,8 +40,8 @@
 
 <script>
     var q = document.getElementById("qmlSpace");
-    var qmlEngine = new QMLEngine(q);
-    qmlEngine.addModulePath( "qmlweb.components","../.." );
+    var qmlEngine = new QmlWeb.QMLEngine(q);
+    QmlWeb.addModulePath( "qmlweb.components","../.." );
     //if (qmlEngine.addImportPath) 
     //  qmlEngine.addImportPath(""); // for now we have to point to import dir directly 
     qmlEngine.loadFile( "Index.qml" );

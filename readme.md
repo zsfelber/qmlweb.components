@@ -39,3 +39,14 @@ When choosing what to create at step 1, please note that QmlWeb [already has som
 Next todo things probably should be done exclusively in QmlWeb:
 * Component
 * Connections
+
+## This Fork/Branch
+
+6. [@zsfelber/qmlweb.components](https://github.com/zsfelber/qmlweb.components).
+
+I use this test project, too. I fixed everything in my engine preventing this to load. My version of engine is a medium deep rewrite of original, faster and it has cleaner code. (as soon as it's ready)
+
+See also
+[@zsfelber/qmlweb](https://github.com/zsfelber/qmlweb)
+[@zsfelber/qmlweb-parser](https://github.com/zsfelber/qmlweb-parser)
+[@zsfelber/gulp-qmlweb](https://github.com/zsfelber/gulp-qmlweb)

@@ -1,0 +1,40 @@
+{
+  "name": "greenzone-terminal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "qmlweb-parser": "file:/ubu64/free_storage/qmlweb-parser",
+    "qmlweb": "file:/ubu64/free_storage/qmlweb",
+    "diff": "",
+    "acorn" : "",
+    "express" : "",
+    "client-sessions" : "",
+    "ws" : "",
+    "compression" : ""
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-changed": "^1.3.2",
+    "gulp-concat": "~2.1.7",
+    "gulp-debug": "",
+    "gulp-newer": "^1.3.0",
+    "gulp-qmlweb": "file:/ubu64/free_storage/gulp-qmlweb",
+    "gulp-rename": "",
+    "gulp-uglify": "~0.2.1",
+    "gulp-util": "~2.2.14",
+    "qmlweb-parser": "file:/ubu64/free_storage/qmlweb-parser",
+    "ejs": "",
+    "js-beautify": "",
+    "gulp-jsbeautify": ""
+  },
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug-gulp": "devtool node_modules/gulp/bin/gulp.js ",
+    "debug-qtjs": "devtool debug_qtjs_compiler.js",
+    "debug": "devtool start.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
