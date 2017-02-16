@@ -44,7 +44,7 @@ Next todo things probably should be done exclusively in QmlWeb:
 
 6. [@zsfelber/qmlweb.components](https://github.com/zsfelber/qmlweb.components).
 
-I use this test project, too. I fixed everything in my engine preventing this to load. My version of engine is a medium deep rewrite of original, faster and it has cleaner code. (as soon as it's ready)
+I use this test project, too. I fixed everything in my engine preventing this to load. My version of engine is a medium deep rewrite of original, it is faster and has cleaner code. (as soon as it's ready)
 
 See also
 [@zsfelber/qmlweb](https://github.com/zsfelber/qmlweb)
