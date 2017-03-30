@@ -17,10 +17,11 @@ Rectangle {
       model: sources.length
       Tab {
         title: source.replace(".qml","")
-        source: sources[index]
+        source: "../"+sources[index]
         Text {
           anchors.bottom: parent.bottom
-          text: "open <a target='_blank' href='"+Qt.resolvedUrl(parent.source)+"'>"+parent.source+"</a>"
+          //text: "open <a target='_blank' href='"+Qt.resolvedUrl("../"+parent.source)+"'>"+parent.source+"</a>"
+          text: "open "+parent.source
         }
       }
     }
